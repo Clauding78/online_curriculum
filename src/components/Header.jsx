@@ -8,13 +8,13 @@ function Header() {
 
         if (!hamButton || !dropDownMenu) return;
 
-        function handleHamClick(e: MouseEvent) {
+        function handleHamClick((e) MouseEvent) {
             e.stopImmediatePropagation();
             dropDownMenu!.classList.toggle('active');
             hamButton!.classList.toggle('change');
         }
 
-        function handleMenuClick(e: MouseEvent) {
+        function handleMenuClick((e) MouseEvent) {
             e.stopPropagation();
         }
 
