@@ -8,19 +8,19 @@ function Header() {
 
         if (!hamButton || !dropDownMenu) return;
 
-        function handleHamClick((e) MouseEvent) {
+        function handleHamClick(e) {
             e.stopImmediatePropagation();
-            dropDownMenu!.classList.toggle('active');
-            hamButton!.classList.toggle('change');
+            dropDownMenu.classList.toggle('active');
+            hamButton.classList.toggle('change');
         }
 
-        function handleMenuClick((e) MouseEvent) {
+        function handleMenuClick(e) {
             e.stopPropagation();
         }
 
         function handleDocumentClick() {
-            dropDownMenu!.classList.remove('active');
-            hamButton!.classList.remove('change');
+            dropDownMenu.classList.remove('active');
+            hamButton.classList.remove('change');
         }
 
         hamButton.addEventListener('click', handleHamClick);
