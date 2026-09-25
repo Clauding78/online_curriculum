@@ -1,0 +1,33 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+
+    text-decoration: none;
+}
+
+:root {
+    --main_color: #222222;
+    --main_color_hover: color-mix(in hsl, var(--main_color), 5% white);
+
+    --a_color: #00ce00;
+}
+
+html {
+    font-size: 17px;
+}
+
+select {
+    border: none;
+}
+
+option {
+    border: none;
+}
+
+button {
+    border: none;
+
+    background-color: transparent;
+}
