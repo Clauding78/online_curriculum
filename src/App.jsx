@@ -4,7 +4,7 @@ import Layout from './components/Layout.jsx';
 
 import Home from './pages/Home.jsx';
 import Habilities from './pages/Habilities.jsx';
-import Contact from './Contact/Home.jsx';
+import Contact from './pages/Contact.jsx';
 
 export default function App() {
     return (
