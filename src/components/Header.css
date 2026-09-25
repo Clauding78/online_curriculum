@@ -1,0 +1,240 @@
+:root {
+    --header_height: 75px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+
+    position: relative;
+
+    height: var(--header_height);
+    width: 100%;
+
+    background-color: var(--main_color);
+}
+
+.Container_site_title {
+    width: 200px;
+}
+
+.site_title {
+    display: inline-block;
+    height: 100%;
+
+    padding-inline: 30px;
+
+    align-content: center;
+
+    color: white;
+    font-size: 2.5rem;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+
+    position: absolute;
+    right: 125px;
+
+    height: 100%;
+}
+
+header nav a {
+    /* inline-block to change sizing, padding, marging ... */
+    display: block;
+    padding-inline: 20px;
+
+    height: 100%;
+
+    align-content: center;
+}
+
+header nav a span, ._fullPage_dropDownMenu nav a span {
+    position: relative;
+
+    color: white;
+    font-family: verdana;
+    font-size: 1.3rem;
+
+    transition: 0.3s ease;
+}
+
+header nav a:hover span, ._fullPage_dropDownMenu nav a:hover span {
+    color: var(--a_color);
+}
+
+header .languageSelect {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+
+._fullPage_dropDownMenu {
+    display: none;
+}
+
+@media (min-width: 1000px) {
+    header nav a span::after {
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+
+        height: 1.5px;
+        width: 0;
+
+        content: '';
+        transition: width 0.3s ease;
+
+        background-color: white;
+    }
+
+    header nav a:hover span::after {
+        width: 100%;
+    }
+}
+
+
+
+
+
+@media (max-width: 1000px) {
+    :root {
+        --sub_nav_height: 50px;
+    }
+
+    header {
+        display: grid;
+        grid-template-rows: var(--header_height) var(--sub_nav_height);
+
+        height: calc(var(--header_height) + var(--sub_nav_height));
+    }
+
+    header nav {
+        position: static; /* to terminate absolute properties remaining */
+
+        width: 100%;
+
+        background-color: color-mix(in hsl, var(--main_color), 5% white);
+    }
+}
+
+@media (max-width: 600px) {
+            /* try to fix */
+    header, .Container_site_title {
+        height: var(--header_height);
+    }
+
+    header nav {
+        display: none;
+    }
+
+    header .languageSelect {
+        display: none;
+    }
+
+    .header_ham_menu_button {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        right: 0;
+        
+        height: var(--header_height);
+        width: var(--header_height);
+    }
+
+    .header_ham_menu_button div {
+        height: 4px;
+        width: 70%;
+
+        border-radius: 15px;
+
+        transition: 0.3s;
+
+        background-color: white;
+    }
+
+    .change .HMI_bar_1 {
+        transform: translate(0, 11px) rotate(-45deg);
+    }
+
+    .change .HMI_bar_2 {
+        opacity: 0;
+    }
+
+    .change .HMI_bar_3 {
+        transform: translate(0, -16px) rotate(45deg);
+    }
+
+    .header_ham_menu_button:hover {
+        background-color: color-mix(in hsl, var(--main_color), 7.5% white);
+    }
+
+    :root {
+        --dropDown_bg: #353535;
+    }
+    
+    ._fullPage_dropDownMenu.active {
+        display: inline-block;
+
+        position: absolute;
+        top: var(--header_height);
+        left: 0;
+
+        height: calc(100vh - var(--header_height));
+        width: 100%;
+
+        background-color: var(--dropDown_bg);
+    }
+
+    ._fullPage_dropDownMenu nav, ._fullPage_dropDownMenu select {
+        width: 100%;
+    }
+
+    ._fullPage_dropDownMenu nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+
+    ._fullPage_dropDownMenu nav a, ._fullPage_dropDownMenu select {
+        padding: 10px 20px;
+    }
+
+    ._fullPage_dropDownMenu nav a span, ._fullPage_dropDownMenu select {
+        color: white;
+        font-family: calibri;
+        font-size: 1.2rem;
+    }
+
+
+
+    /* warning :: duplicate code - clear later */
+    ._fullPage_dropDownMenu nav a span::after {
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+
+        height: 1.5px;
+        width: 0;
+
+        content: '';
+        transition: width 0.3s ease;
+
+        background-color: white;
+    }
+
+    ._fullPage_dropDownMenu nav a:hover span::after {
+        width: 100%;
+    }
+
+    ._fullPage_dropDownMenu select {
+        background-color: var(--dropDown_bg);
+    }
+}
