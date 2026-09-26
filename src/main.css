@@ -12,10 +12,29 @@
     --main_color_hover: color-mix(in hsl, var(--main_color), 5% white);
 
     --a_color: #00ce00;
+
+    --second_main_color: color-mix(in hsl, var(--main_color), 15% black);
+
+    --link_main_color: rgb(0, 200, 0);
+
+    /* for calcs */
+    --font_size: 10px;
+
+    --header_height: 75px;
 }
 
 html {
-    font-size: 17px;
+    font-size: var(--font_size);
+}
+
+body {
+    height: 100vh; /* vh breaks the sticky positioning on .top */
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    background-color: var(--main_color);
 }
 
 select {
@@ -30,4 +49,14 @@ button {
     border: none;
 
     background-color: transparent;
+}
+
+main {
+    margin-top: var(--header_height);
+
+    height: 300px;
+
+    font-size: 2rem;
+
+    background-color: white;
 }
