@@ -61,7 +61,7 @@
 
         if (_cache[_cacheKey]) return _cache[_cacheKey];
 
-        const _promise = fetch(`/src/public/lang/${lang}/${ns}.json`)
+        const _promise = fetch(`/online_curriculum/src/public/lang/${lang}/${ns}.json`)
             .then ((res) => {
                 if (!res.ok) throw new Error(`ERROR - File missing "/client/public/lang/${lang}/${ns}.json" ...`);
                 return res.json();
