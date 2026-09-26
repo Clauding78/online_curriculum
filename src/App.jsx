@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 
-import Layout from './components/Layout';
+import Layout from './components/Layout.jsx';
 
-import Home from './pages/Home';
-import Habilities from './pages/Habilities';
-import Resources from './pages/Resources';
-import FAQs from './pages/FAQs';
-import Contact from './pages/Contact';
+import Home from './pages/Home.jsx';
+import Habilities from './pages/Habilities.jsx';
+import Resources from './pages/Resources.jsx';
+import FAQs from './pages/FAQs.jsx';
+import Contact from './pages/Contact.jsx';
 
 function App() {
     return (
