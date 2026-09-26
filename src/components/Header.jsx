@@ -44,7 +44,7 @@ function Header() {
                 </a>
 
                 <nav>
-                    <a href=''>
+                    <a href='{<Habilities />}'>
                         <span data-i18n='header.1_url'></span>
                     </a>
                     <a href=''>
@@ -53,7 +53,7 @@ function Header() {
                     <a href=''>
                         <span data-i18n='header.3_url'></span>
                     </a>
-                    <a href=''>
+                    <a href='{<Contact />}'>
                         <span data-i18n='header.4_url'></span>
                     </a>
                 </nav>
