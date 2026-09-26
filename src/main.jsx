@@ -8,6 +8,8 @@ import './js/language.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <App />
+        <BrowserRouter basename="/online_curriculum/">
+            <App />
+        </BrowserRouter>
     </React.StrictMode>
 );
