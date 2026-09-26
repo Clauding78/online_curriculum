@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Header.css';
 
 function Header() {
-/*    useEffect(() => {
+    useEffect(() => {
         const hamButton = document.getElementById('header_ham_menu_button');
         const dropDownMenu = document.getElementById('_fullPage_dropDownMenu');
 
@@ -98,6 +98,6 @@ function Header() {
             </div>
         </div>
     );
-} */
+}
 
 export default Header;
