@@ -1,0 +1,41 @@
+{
+    "footer": {
+        " // ": " LS - Link Section ",
+
+        "footer_text": [
+            "This is my online space.",
+            "Here you will know everything I allow you to know about me, from works I've done to habilities, interests, objectives, etc.",
+            "If you got questions, you can contact me from one of the methods I showed here, but don't spam, please...",
+            "Requests are dealth by email. If I accept the task, whatsapp is the method I prefer to communicate when it comes to clarify doubts. If the email and phone number on whatsapp don't match, I'll block you."
+        ],
+
+        "LS_1st_block_title": "About",
+
+        "LS_1st_block__1_link": "Bio",
+        "LS_1st_block__2_link": "Career",
+        "LS_1st_block__3_link": "Objectives",
+
+        "LS_2nd_block_title": "Habilities",
+
+        "LS_2nd_block__1_link": "Backend",
+        "LS_2nd_block__2_link": "Frontend",
+        "LS_2nd_block__3_link": "Desktop Apps",
+        "LS_2nd_block__4_link": "Mobile Apps",
+
+        "LS_3rd_block_title": "Projects",
+
+        "LS_3rd_block__1_link": "Web Apps",
+        "LS_3rd_block__2_link": "Websites",
+
+        "LS_4th_block_title": "Contact",
+
+        "LS_4th_block__1_link": "Email",
+        "LS_4th_block__2_link": "Phone (+Whatsapp)",
+        "LS_4th_block__3_link": "Quora",
+
+        "LD_1st_link": "WhoAmI?",
+        "LD_2nd_link": "Habilities",
+        "LD_3rd_link": "Resources",
+        "LD_4th_link": "FAQs"
+    }
+}
