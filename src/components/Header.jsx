@@ -38,63 +38,75 @@ function Header() {
     }, []);
 
     return (
-        <div>
-            <header data-i18n-ns='main/header'>
-                <a className='Container_site_title' href=''>
-                    <span className='site_title'>mySelf</span>
-                </a>
+        <div className='top'>
+            <div className='Container_full_top'>
+                <div id='offline_banner' className='offline_banner'>
+                    <span>No Internet connection...</span>
+                </div>
+                
+                <header data-i18n-ns='main/header'>
+                    <a className='Container_site_title' href=''>
+                        <span className='site_title'>mySelf</span>
+                    </a>
 
-                <nav>
-                    <Link to="/habilities">
-                        <span data-i18n='header.1_url'></span>
-                    </Link>
-                    <a href=''>
-                        <span data-i18n='header.2_url'></span>
-                    </a>
-                    <a href=''>
-                        <span data-i18n='header.3_url'></span>
-                    </a>
-                    <Link to="/contact">
-                        <span data-i18n='header.4_url'></span>
-                    </Link>
-                </nav>
+                    <nav>
+                        <Link to='/habilities'>
+                            <span data-i18n='header.1_url'></span>
+                        </Link>
 
-                <select className='languageSelect' onChange={(event) => window.setLanguage(event.target.value)}>
-                    <option value='pt'>pt-PT</option>
-                    <option value='en'>en-US</option>
-                </select>
+                        <Link to='/resources'>
+                            <span data-i18n='header.2_url'></span>
+                        </Link>
 
-                <button className='header_ham_menu_button' id='header_ham_menu_button'>
-                    <div className='HMI_bar_1'></div>
-                    <div className='HMI_bar_2'></div>
-                    <div className='HMI_bar_3'></div>
-                </button>
-            </header>
+                        <Link to='/FAQs'>
+                            <span data-i18n='header.3_url'></span>
+                        </Link>
 
-            <div
-                id='_fullPage_dropDownMenu'
-                className='_fullPage_dropDownMenu'
-                data-i18n-ns='main/header'
-            >
-                <nav>
-                    <a href=''>
-                        <span data-i18n='header.1_url'></span>
-                    </a>
-                    <a href=''>
-                        <span data-i18n='header.2_url'></span>
-                    </a>
-                    <a href=''>
-                        <span data-i18n='header.3_url'></span>
-                    </a>
-                    <a href=''>
-                        <span data-i18n='header.4_url'></span>
-                    </a>
-                </nav>
+                        <Link to='/contact'>
+                            <span data-i18n='header.4_url'></span>
+                        </Link>
+                    </nav>
 
-                <select className='languageSelect' onChange={(event) => window.setLanguage(event.target.value)}>
-                    <option value='pt'>pt-PT</option>
-                    <option value='en'>en-US</option>
-                </select>
+                    <select className='languageSelect' onChange={(event) => window.setLanguage(event.target.value)}>
+                        <option value='pt'>pt-PT</option>
+                        <option value='en'>en-US</option>
+                    </select>
+
+                    <button className='header_ham_menu_button' id='header_ham_menu_button'>
+                        <div className='HMI_bar_1'></div>
+                        <div className='HMI_bar_2'></div>
+                        <div className='HMI_bar_3'></div>
+                    </button>
+                </header>
+
+                <div
+                    id='_fullPage_dropDownMenu'
+                    className='_fullPage_dropDownMenu'
+                    data-i18n-ns='main/header'
+                >
+                    <nav>
+                        <Link to='/habilities'>
+                            <span data-i18n='header.1_url'></span>
+                        </Link>
+
+                        <Link to='/'>
+                            <span data-i18n='header.2_url'></span>
+                        </Link>
+
+                        <Link to='/'>
+                            <span data-i18n='header.3_url'></span>
+                        </Link>
+
+                        <Link to='/contact'>
+                            <span data-i18n='header.4_url'></span>
+                        </Link>
+                    </nav>
+
+                    <select className='languageSelect' onChange={(event) => window.setLanguage(event.target.value)}>
+                        <option value='pt'>pt-PT</option>
+                        <option value='en'>en-US</option>
+                    </select>
+                </div>
             </div>
         </div>
     );
