@@ -44,18 +44,18 @@ function Header() {
                 </a>
 
                 <nav>
-                    <a href='{<Habilities />}'>
+                    <Link to="/habilities">
                         <span data-i18n='header.1_url'></span>
-                    </a>
+                    </Link>
                     <a href=''>
                         <span data-i18n='header.2_url'></span>
                     </a>
                     <a href=''>
                         <span data-i18n='header.3_url'></span>
                     </a>
-                    <a href='{<Contact />}'>
+                    <Link to="/contact">
                         <span data-i18n='header.4_url'></span>
-                    </a>
+                    </Link>
                 </nav>
 
                 <select className='languageSelect' onChange={(event) => window.setLanguage(event.target.value)}>
