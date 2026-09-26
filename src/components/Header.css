@@ -2,6 +2,41 @@
     --header_height: 75px;
 }
 
+.offline_banner {
+    display: none;
+}
+
+.offline_banner.active {
+    display: block;
+
+    height: 30px;
+    align-content: center;
+
+    background-color: rgb(245, 245, 0);
+}
+
+.offline_banner.active span {
+    margin-left: 20px;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: verdana;
+}
+
+.top {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 999;
+}
+
+.Container_full_top {
+    position: relative;
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -27,7 +62,7 @@ header {
     align-content: center;
 
     color: white;
-    font-size: 2.5rem;
+    font-size: 4.5rem;
 }
 
 header nav {
@@ -56,7 +91,7 @@ header nav a span, ._fullPage_dropDownMenu nav a span {
 
     color: white;
     font-family: verdana;
-    font-size: 1.3rem;
+    font-size: 2rem;
 
     transition: 0.3s ease;
 }
@@ -191,6 +226,8 @@ header .languageSelect {
         width: 100%;
 
         background-color: var(--dropDown_bg);
+
+        z-index: 999;
     }
 
     ._fullPage_dropDownMenu nav, ._fullPage_dropDownMenu select {
@@ -210,7 +247,7 @@ header .languageSelect {
     ._fullPage_dropDownMenu nav a span, ._fullPage_dropDownMenu select {
         color: white;
         font-family: calibri;
-        font-size: 1.2rem;
+        font-size: 2.5rem;
     }
 
 
