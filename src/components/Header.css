@@ -34,14 +34,14 @@
 }
 
 .Container_full_top {
-    position: relative;
+    position: relative; /* bcuz of _fullPage_dropDownMenu */
 }
 
 header {
     display: flex;
     flex-direction: row;
 
-    position: relative;
+    position: relative; /* nav */
 
     height: var(--header_height);
     width: 100%;
@@ -49,6 +49,7 @@ header {
     background-color: var(--main_color);
 }
 
+/* for <a> tag */
 .Container_site_title {
     width: 200px;
 }
@@ -68,7 +69,7 @@ header {
 header nav {
     display: flex;
     flex-direction: row;
-    gap: 1px;
+    gap: 1.5px;
 
     position: absolute;
     right: 125px;
@@ -87,7 +88,7 @@ header nav a {
 }
 
 header nav a span, ._fullPage_dropDownMenu nav a span {
-    position: relative;
+    position: relative; /* ::after */
 
     color: white;
     font-family: verdana;
@@ -97,7 +98,7 @@ header nav a span, ._fullPage_dropDownMenu nav a span {
 }
 
 header nav a:hover span, ._fullPage_dropDownMenu nav a:hover span {
-    color: var(--a_color);
+    color: var(--link_main_color);
 }
 
 header .languageSelect {
@@ -110,6 +111,8 @@ header .languageSelect {
     display: none;
 }
 
+
+/* the idea is to trigger underline after this */
 @media (min-width: 1000px) {
     header nav a span::after {
         position: absolute;
@@ -125,6 +128,7 @@ header .languageSelect {
         background-color: white;
     }
 
+    /* whole <a> block triggers */
     header nav a:hover span::after {
         width: 100%;
     }
@@ -157,14 +161,17 @@ header .languageSelect {
 
 @media (max-width: 600px) {
             /* try to fix */
-    header, .Container_site_title {
+    /* removed :: , .Container_site_title */
+    header {
         height: var(--header_height);
     }
 
+    /* job to dropdown nav */
     header nav {
         display: none;
     }
 
+    /* job to dropdown nav */
     header .languageSelect {
         display: none;
     }
@@ -182,6 +189,8 @@ header .languageSelect {
         
         height: var(--header_height);
         width: var(--header_height);
+
+        transition: 0.3s ease;
     }
 
     .header_ham_menu_button div {
@@ -207,19 +216,23 @@ header .languageSelect {
         transform: translate(0, -16px) rotate(45deg);
     }
 
-    .header_ham_menu_button:hover {
-        background-color: color-mix(in hsl, var(--main_color), 7.5% white);
-    }
-
     :root {
         --dropDown_bg: #353535;
+    }
+
+    .header_ham_menu_button.change {
+        background-color: color-mix(in hsl, var(--dropDown_bg), 15% black);
+    }
+
+    .header_ham_menu_button:hover {
+        background-color: var(--dropDown_bg);
     }
     
     ._fullPage_dropDownMenu.active {
         display: inline-block;
 
         position: absolute;
-        top: var(--header_height);
+        top: var(--header_height); /* initial */
         left: 0;
 
         height: calc(100vh - var(--header_height));
@@ -237,7 +250,7 @@ header .languageSelect {
     ._fullPage_dropDownMenu nav {
         display: flex;
         flex-direction: column;
-        gap: 1px;
+        gap: 1.5px;
     }
 
     ._fullPage_dropDownMenu nav a, ._fullPage_dropDownMenu select {
