@@ -45,9 +45,9 @@ function Header() {
                 </div>
                 
                 <header data-i18n-ns='main/header'>
-                    <a className='Container_site_title' href=''>
+                    <Link className='Container_site_title' to='/'>
                         <span className='site_title'>mySelf</span>
-                    </a>
+                    </Link>
 
                     <nav>
                         <Link to='/habilities'>
