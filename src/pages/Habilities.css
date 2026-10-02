@@ -1,0 +1,254 @@
+.Container_carroussels {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* for specific groups ( coding, hardware, software ) */
+.Container_tag_Box {
+    display: flex;
+    flex-direction: row; /* I double the tags in order to counter a bug */
+
+    margin: auto;
+
+    mask-image: linear-gradient(to right, transparent, var(--main_color) 10% 90%, transparent);
+
+    width: 80%;
+    
+    overflow: hidden;
+}
+
+.Container_tag_Box::-webkit-scrollbar {
+    display: none;
+}
+
+.tag_Box_Group {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    padding: 20px 0px;
+    
+    animation: carroussel_spin 10s infinite linear;
+}
+
+.tag_Box_Group span {
+    --TGB_span_border_radius: 10px;
+    --TGB_span_border_size: 2px;
+
+    position: relative;
+    isolation: isolate;
+
+    display: block;
+
+    padding: 10px 20px;
+    margin: 5px 20px;
+
+    border: var(--TGB_span_border_size) solid transparent;
+    border-radius: calc(var(--TGB_span_border_radius) + var(--TGB_span_border_size));
+
+    color: white;
+
+    background: conic-gradient(rgb(69, 29, 170), rgb(200, 181, 248) 35%, rgb(69, 29, 170), rgb(200, 181, 248) 35%, rgb(69, 29, 170)) border-box;
+
+    transition: scale 0.3s ease;
+}
+
+.tag_Box_Group span::before {
+    content: '';
+    position: absolute;
+    inset: calc(var(--TGB_span_border_size) * -1);
+    border-radius: inherit;
+
+    background-image: conic-gradient(from var(--angle), rgb(69, 29, 170), rgb(200, 181, 248) 35%, rgb(69, 29, 170), rgb(200, 181, 248) 35%, rgb(69, 29, 170));
+
+    filter: blur(0.5rem);
+    opacity: 0.5;
+
+    z-index: -2;
+}
+
+.tag_Box_Group span::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    background-color: #1c1f2b;
+
+    z-index: -1;
+}
+
+.tag_Box_Group span:hover {
+    scale: 1.25;
+
+    z-index: 99;
+}
+
+
+
+
+
+
+
+.Container_tag_Box:hover .tag_Box_Group {
+    animation-play-state: paused;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes carroussel_spin {
+    from { translate: 0; }
+    to { translate: -100%; }
+}
+
+:root {
+    --angle: 0deg;
+}
+
+.card {
+    --card_height: 350px;
+    --card_width: 290px;
+
+    --card_border_radius: 10px;
+    --card_border_size: 5px;
+
+    position: relative;
+    isolation: isolate; /* contexto de empilhamento sempre presente */
+
+    margin: 10px;
+
+    min-height: var(--card_height);
+    min-width: var(--card_width);
+
+    max-height: var(--card_height);
+    max-width: var(--card_width);
+
+    border: var(--card_border_size) solid transparent;
+    border-radius: calc(var(--card_border_radius) + var(--card_border_size));
+
+    color: white;
+    text-align: center;
+
+    /* o gradiente é o anel; o interior é tapado pelo ::after */
+    background: conic-gradient(from var(--angle), rgb(69, 29, 170), rgb(200, 181, 248) 35%, rgb(69, 29, 170), rgb(200, 181, 248) 35%, rgb(69, 29, 170)) border-box;
+
+    animation: 4s card_spim linear infinite;
+    transition: scale 0.3s ease;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    inset: calc(var(--card_border_size) * -1);
+
+    border-radius: inherit;
+
+    background-image: conic-gradient(from var(--angle), rgb(69, 29, 170), rgb(200, 181, 248) 35%, rgb(69, 29, 170), rgb(200, 181, 248) 35%, rgb(69, 29, 170));
+
+    filter: blur(2.5rem);
+    opacity: 0.5;
+
+    animation: 4s card_spim linear infinite;
+
+    z-index: -2;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    border-radius: var(--card_border_radius);
+
+    background-color: #1c1f2b;
+
+    z-index: -1;
+}
+
+.card:hover {
+    scale: 1.05;
+}
+
+.card span {
+    margin-inline: 10px;
+}
+
+.card_Container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    justify-content: center;
+    justify-items: center;
+}
+
+@media (max-width: 1350px) {
+    .card_Container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .Container_tag_Box {
+        width: 90%;
+    }
+}
+
+@media (max-width: 1050px) {
+    .card_Container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .card_Container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
+}
+
+
+
+.card_innerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 15px;
+
+    align-items: center;
+
+    transition: 0.3s ease;
+}
+
+.card img {
+    height: 100px;
+    width: 100px;
+}
+
+.card .card_title {
+    font-size: 2.5rem;
+}
+
+.card .card_text {
+    font-size: 2rem;
+}
+
+@keyframes card_spim {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
