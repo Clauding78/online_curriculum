@@ -1,5 +1,8 @@
 :root {
     --header_height: 75px;
+    --thumbnail_height: 250px;
+
+    --sub_layer_bg_color: rgba(52, 52, 52, 0.767);
 }
 
 .offline_banner {
@@ -23,8 +26,12 @@
     font-family: verdana;
 }
 
+.thumbnail {
+    height: var(--thumbnail_height);
+}
+
 .top {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
 
@@ -43,7 +50,7 @@ header {
 
     position: relative; /* nav */
 
-    height: var(--header_height);
+    max-height: var(--header_height); /* max-height to prevent shaking */
     width: 100%;
 
     background-color: var(--main_color);
@@ -69,7 +76,6 @@ header {
 header nav {
     display: flex;
     flex-direction: row;
-    gap: 1.5px;
 
     position: absolute;
     right: 125px;
@@ -78,6 +84,8 @@ header nav {
 }
 
 header nav a {
+    position: relative;
+
     /* inline-block to change sizing, padding, marging ... */
     display: block;
     padding-inline: 20px;
@@ -97,8 +105,107 @@ header nav a span, ._fullPage_dropDownMenu nav a span {
     transition: 0.3s ease;
 }
 
-header nav a:hover span, ._fullPage_dropDownMenu nav a:hover span {
+header nav a:hover span, header nav a span.active, ._fullPage_dropDownMenu nav a:hover span {
     color: var(--link_main_color);
+}
+
+.header_nav_links_dropdown {
+    visibility: hidden;
+
+    position: absolute;
+    top: calc(var(--header_height) - 8px);
+    left: 0;
+
+    padding-top: 20px;
+
+    height: 100vh;
+    width: 100%;
+
+    background-color: var(--sub_layer_bg_color);
+
+    z-index: 999;
+}
+
+.header_nav_links_dropdown.open {
+    visibility: visible;
+}
+
+.HNLD_ul {
+    display: flex;
+    flex-direction: row;
+
+    margin-left: 50px;
+}
+
+.HNLD_ul li {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 350px;
+
+    padding-top: 10px;
+}
+
+.HNLD_ul li:not(:last-child)::after {
+    position: absolute;
+    top: 10px;
+    right: 0;
+
+    content: '';
+    height: 300px;
+    width: 2.5px;
+
+    background-color: white;
+}
+
+:root {
+    --HNLD_gap_left: 10px;
+}
+
+.HNLD_ul_block_title {
+    padding-left: calc(1.5 * var(--HNLD_gap_left));
+    
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.HNLD_ul nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.HNLD_ul nav a {
+    display: block;
+
+    height: 3.5rem;
+
+    color: var(--link_main_color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    transition: 2s ease;
+}
+
+.HNLD_ul nav span {
+    font-size: 2rem;
+}
+
+.HNLD_ul nav a:hover span {
+    color: blueviolet;
+    font-size: 2.2rem;
+}
+
+.HNLD_ul nav span {
+    padding: 10px calc(2 * var(--HNLD_gap_left));
+}
+
+@media (min-width: 601px) {
+    .Container_full_top:has(header nav a:hover, .header_nav_links_dropdown:hover) .header_nav_links_dropdown {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 header .languageSelect {
@@ -147,7 +254,7 @@ header .languageSelect {
         display: grid;
         grid-template-rows: var(--header_height) var(--sub_nav_height);
 
-        height: calc(var(--header_height) + var(--sub_nav_height));
+        max-height: calc(var(--header_height) + var(--sub_nav_height));
     }
 
     header nav {
@@ -157,13 +264,17 @@ header .languageSelect {
 
         background-color: color-mix(in hsl, var(--main_color), 5% white);
     }
+
+    .header_nav_links_dropdown {
+        top: calc((var(--header_height) + var(--sub_nav_height)));
+    }
 }
 
 @media (max-width: 600px) {
             /* try to fix */
     /* removed :: , .Container_site_title */
     header {
-        height: var(--header_height);
+        max-height: var(--header_height);
     }
 
     /* job to dropdown nav */
@@ -238,9 +349,18 @@ header .languageSelect {
         height: calc(100vh - var(--header_height));
         width: 100%;
 
-        background-color: var(--dropDown_bg);
+        background-color: var(--sub_layer_bg_color);
 
         z-index: 999;
+    }
+
+                                            /* try fix */
+    body:has(._fullPage_dropDownMenu.active), body:has(.header_nav_links_dropdown.open) {
+        overflow: hidden;
+    }
+
+    ._fullPage_dropDownMenu.active main::-webkit-scrollbar {
+        height: 100%
     }
 
     ._fullPage_dropDownMenu nav, ._fullPage_dropDownMenu select {
@@ -284,7 +404,7 @@ header .languageSelect {
         width: 100%;
     }
 
-    ._fullPage_dropDownMenu select {
-        background-color: var(--dropDown_bg);
+    ._fullPage_dropDownMenu select, ._fullPage_dropDownMenu select option {
+        background-color: var(--sub_layer_bg_color);
     }
 }
