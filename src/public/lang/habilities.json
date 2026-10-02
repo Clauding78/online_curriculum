@@ -1,0 +1,15 @@
+{
+    "habilities": {
+        "nonStop" : "Não paro. Eu quero saber de tudo ao detalhe e como pôr em prática. Eis o que sou capaz:",
+
+        "1_card_title" : "Cibersegurança",
+        "2_card_title" : "Desenvolvimento",
+        "3_card_title" : "Assistência",
+        "4_card_title" : "Softwares",
+
+        "1_card_text" : "Quem é o alvo?",
+        "2_card_text" : "De websites estáticos ou dinâmicos a aplicações de interação com bases de dados. O que têm em mente?",
+        "3_card_text" : "Diagnóstico de problemas de sistemas de software e hardware. Não inclui apoio psicológico.",
+        "4_card_text" : "Que aplicações / sistemas sei utilizar."
+    }
+}
