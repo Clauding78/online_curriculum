@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
-    const [activeMenu, setActiveMenu] = useState<string | null>(null);
+    const [activeMenu, setActiveMenu] = useState(null);
 
     useEffect(() => {
         const banner = document.getElementById('offline_banner');
