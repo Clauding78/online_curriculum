@@ -1,0 +1,15 @@
+{
+    "habilities": {
+        "nonStop" : "I don't stop. I wanna know everything in detail and also how to put in practise. Here's what I can do:",
+
+        "1_card_title" : "Cybersecurity",
+        "2_card_title" : "Development",
+        "3_card_title" : "Assist",
+        "4_card_title" : "Softwares",
+
+        "1_card_text" : "Who's the target?",
+        "2_card_text" : "From static or dinamic websites to web apps capable of manage databases. What's up in your mind?",
+        "3_card_text" : "Diagnosis of both software & hardware systems. Beware, I'm not a teraphist.",
+        "4_card_text" : "What aplications / systems I can use."
+    }
+}
