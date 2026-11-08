@@ -1,3 +1,254 @@
+:root {
+    /* -- header & nav heights on layout.css */
+    --nav_font_size: 1.5rem; /* -- @media width 625px fix ( normal :hover 1.6rem to @media width 625px :hover 1.5rem ) */
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+}
+
+.offline_banner {
+    display: none;
+}
+
+.offline_banner.active {
+    display: block;
+
+    height: 50px;
+    width: 100%;
+
+    color: black;
+
+    background-color: yellow;
+}
+
+/* -- to help set height for header_top_row and nav */
+.header_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+}
+
 header {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+    position: relative;
+
+    height: var(--header_height);
+
+    background-color: var(--second_main_color);
+}
+
+.header_site_logo {
+    display: block;
+
+    margin-left: 10px;
+
+    height: 100%;
+    width: 100px;
+
     background-color: red;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+
+    height: 100%; /* -- for now 100% of header_site_logo, set ny the header */
+}
+
+nav a {
+    display: block;
+
+    height: 100%;
+
+    padding-inline: 20px;
+
+    align-content: center;
+
+    color: white;
+}
+
+nav a span {
+    position: relative; /* -- for ::after effect */
+
+    font-size: var(--nav_font_size);
+
+    transition: 0.3s ease;
+}
+
+nav a span::after {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+
+    height: 1.5px;
+    width: 0;
+
+    content: '';
+    transition: width 0.3s ease;
+
+    background-color: white;
+}
+
+nav a:hover span::after {
+    width: 100%;
+}
+
+nav a:hover span {
+    font-size: 1.6rem;
+    color: var(--text_second_main_color);
+}
+
+.language_Select {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.header_ham_button {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    height: var(--header_height);
+    width: var(--header_height);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.header_ham_button > hr {
+    height: 5px;
+    width: 75%;
+
+    border-radius: 50px;
+
+    background-color: white;
+}
+
+.full_page_Dropdown {
+    display: none;
+}
+
+@media (max-width: 825px) {
+    header {
+        flex-direction: column;
+        gap: 0px;
+
+        height: calc(var(--header_height) + var(--nav_height));
+    }
+
+    .header_top_row {
+        height: var(--header_height); /* -- reused */
+    }
+
+    header nav {
+        display: flex;
+
+        height: var(--nav_height);
+
+        background-color: var(--header_nav_second_color);
+    }
+
+    nav a span {
+        font-size: 1.5rem;
+
+        transition: 0.3s ease;
+    }
+
+    /*
+        -- plans for future modifications
+    
+    nav a span::after {
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+
+        height: 1.5px;
+        width: 0;
+
+        content: '';
+        transition: width 0.3s ease;
+
+        background-color: white;
+    }
+    */
+
+    nav a {
+        position: relative;
+        transition: 0.2s ease;
+    }
+
+    nav a:hover {
+        background: color-mix(in hsl, var(--second_main_color), 5% white);
+    }
+
+    nav a:hover span {
+        font-size: var(--nav_font_size); /* prevent 1.6rem from before, not the intention here */
+        color: var(--text_second_main_color);
+    }
+
+    /*
+        -- not working yet
+
+    nav a:hover a::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        height: 1.5px;
+        width: 100%;
+
+        content: '';
+        background-color: rgb(2, 255, 2);
+    }
+    */
+}
+
+@media (max-width: 625px) {
+    header {
+        height: var(--header_height);
+    }
+
+    header nav {
+        display: none;
+    }
+
+    .header_ham_button {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .full_page_Dropdown.active {
+        display: block;
+
+        margin-top: var(--header_height);
+    }
+
+    header .language_Select {
+        display: none;
+    }
+
+    .full_page_Dropdown.active .language_Select {
+        display: block;
+
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .full_page_Dropdown.active, .full_page_Dropdown nav {
+        display: flex;
+        flex-direction: column;
+    }
 }

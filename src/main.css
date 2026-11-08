@@ -1,0 +1,37 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+
+    list-style-type: none;
+
+    border: none;
+
+    text-decoration: none;
+    font-family: verdana;
+}
+
+:root {
+    --main_color: #252525;
+    --second_main_color: color-mix(in hsl, var(--main_color), 50% black);
+
+    --header_nav_second_color: color-mix(in hsl, var(--second_main_color), 2% white);
+
+    --text_second_main_color: rgb(24, 242, 24);
+}
+
+html {
+    font-size: 12px;
+}
+
+body {
+    min-height: 100vh;
+
+    line-height: 1.5;
+    color: white;
+
+    background-color: var(--main_color);
+}
+
+button {
+    background-color: transparent;
+}

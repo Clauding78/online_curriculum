@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout.jsx';
 
 import Home from './pages/Home.jsx';
+import Contact from './pages/Contact.jsx';
 
 export default function App() {
     return (
@@ -10,6 +11,7 @@ export default function App() {
             <Routes>
                 <Route element={<Layout />} >
                     <Route path='/' element={<Home />} />
+                    <Route path='/contact' element={<Contact />} />
                 </Route>
             </Routes>
         </HashRouter>
